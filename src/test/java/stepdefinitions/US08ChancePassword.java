@@ -1,2 +1,121 @@
-package stepdefinitions;public class US08ChancePassword {
+package stepdefinitions;
+
+import io.cucumber.java.en.Given;
+import io.cucumber.java.en.Then;
+import org.apache.poi.util.SystemOutLogger;
+import org.junit.Assert;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.Select;
+import pages.GMICreatPassword;
+import pages.GMILoginPage;
+import pages.GMIUserInfoPage;
+import utilities.ConfigurationReader;
+import utilities.Driver;
+import utilities.ReusableMethods;
+
+import javax.swing.*;
+import javax.xml.ws.Action;
+
+public class US08ChancePassword {
+GMILoginPage gmiLoginPage=new GMILoginPage();
+    GMIUserInfoPage gmiUserInfoPage= new GMIUserInfoPage();
+    GMICreatPassword gmiCreatPassword=new GMICreatPassword();
+
+    @Given("Go to home page link")
+    public void go_to_home_page_link() {
+        Driver.getDriver().get(ConfigurationReader.getProperty("gmi_login_url"));
+    }
+
+  /*  @Given("to User Account drob down menu and Click to Sign In")
+    public void to_User_Account_drob_down_menu_and_Click_to_Sign_In() {
+        // Write code here that turns the phrase above into concrete actions
+        throw new io.cucumber.java.PendingException();
+    }*/
+
+    @Given("Enter the username with valid credentail {string}")
+    public void enter_the_username_with_valid_credentail(String string) {
+       gmiLoginPage.userNameBox.sendKeys(string);
+    }
+
+    @Given("Enter the password with valid credentail {string}")
+    public void enter_the_password_with_valid_credentail(String string) {
+        gmiLoginPage.passwordBox.sendKeys(string);
+    }
+
+    @Given("Click to Sign in button")
+    public void click_to_Sign_in_button() {
+       gmiLoginPage.signInButton.click();
+    }
+
+    @Given("Click to User Account drop down menu and Click to Password")
+    public void click_to_User_Account_drop_down_menu_and_Click_to_Password() {
+       gmiCreatPassword.dropdown.click();
+        WebElement password=gmiCreatPassword.dropdown;
+        ReusableMethods.waitForVisibility(password,10);
+        Actions actions = new Actions(Driver.getDriver());
+        actions.moveToElement(gmiCreatPassword.paasss).click().perform();
+    }
+
+
+    @Given("Enter the Current Password width credentail {string}")
+    public void enter_the_Current_Password_width_credentail(String string) {
+        gmiCreatPassword.currentPassword.sendKeys(string);
+    }
+    @Given("Enter the Current Password width credentail1 {string}")
+    public void enter_the_Current_Password_width_credentail1(String string) {
+        gmiCreatPassword.newPassword.sendKeys(string);
+    }
+
+    @Given("Enter the Current Password width credentail2 {string}")
+    public void enter_the_Current_Password_width_credentail2(String string) {
+       gmiCreatPassword.confirmPassword.sendKeys(string);
+    }
+
+    @Given("Enter the New Password {string}")
+    public void enter_the_New_Password(String string) {
+       gmiCreatPassword.newPassword.sendKeys(string);
+    }
+
+    @Given("Enter the New Password Confirmation {string}")
+    public void enter_the_New_Password_Confirmation(String string) {
+        gmiCreatPassword.confirmPassword.sendKeys(string);
+
+    }
+    @Then("Click to Save in button")
+    public void click_to_Save_in_button() {
+       gmiCreatPassword.saveButton.submit();
+    }
+
+    @Then("conformed faild message")
+    public void conformed_faild_message() {
+       //
+        String messge=Driver.waitForVisibility((gmiCreatPassword.alertError),5).getText();
+        Assert.assertEquals("An error has occurred! The password could not be change",messge);
+        System.out.println(messge);
+
+
+    }
+
+    @Then("Confirmed password changed message")
+    public void confirmed_password_changed_message() {
+
+       // Assert.assertTrue(gmiCreatPassword.alert.isDisplayed());
+      //  System.out.println(gmiCreatPassword.alert.getText());
+     //   Assert.assertTrue(gmiCreatPassword.alert.isDisplayed());
+        String messge=Driver.waitForVisibility((gmiCreatPassword.alertError),5).getText();
+        Assert.assertEquals("Password changed!",messge);
+        System.out.println(messge);
+    }
 }
+
+
+
+
+
+
+
+
+
+
+

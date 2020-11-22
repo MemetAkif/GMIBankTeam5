@@ -1,48 +1,41 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<testsuite errors="0" failures="0" name="io.cucumber.core.plugin.JUnitFormatter" skipped="0" tests="5" time="146.367">
-<testcase classname="User Info being populated" name="US_006 TC_001" time="29.418">
-<system-out><![CDATA[Given User is on GMIBank Login page.........................................passed
-When user provide valid username "Team5Employee"............................passed
-When user provide valid password "employeeTeam5"............................passed
-When user click sign in button..............................................passed
-Given Click to element with element name....................................passed
-Then Compare text using element name........................................passed
-]]></system-out>
-</testcase>
-<testcase classname="User Info being populated" name="US_006 TC_001 2" time="26.722">
-<system-out><![CDATA[Given User is on GMIBank Login page.........................................passed
-When user provide valid username "Team5User"................................passed
-When user provide valid password "userTeam5"................................passed
-When user click sign in button..............................................passed
-Given Click to element with element name....................................passed
-Then Compare text using element name........................................passed
-]]></system-out>
-</testcase>
-<testcase classname="User Info being populated" name="US_006 TC_001 3" time="29.255">
-<system-out><![CDATA[Given User is on GMIBank Login page.........................................passed
-When user provide valid username "Team5Customer"............................passed
-When user provide valid password "customerTeam5"............................passed
-When user click sign in button..............................................passed
-Given Click to element with element name....................................passed
-Then Compare text using element name........................................passed
-]]></system-out>
-</testcase>
-<testcase classname="User Info being populated" name="US_006 TC_001 4" time="30.186">
-<system-out><![CDATA[Given User is on GMIBank Login page.........................................passed
-When user provide valid username "Team5Admin"...............................passed
-When user provide valid password "adminTeam5"...............................passed
-When user click sign in button..............................................passed
-Given Click to element with element name....................................passed
-Then Compare text using element name........................................passed
-]]></system-out>
-</testcase>
-<testcase classname="User Info being populated" name="US_006 TC_001 5" time="30.124">
-<system-out><![CDATA[Given User is on GMIBank Login page.........................................passed
-When user provide valid username "Team5Manager".............................passed
-When user provide valid password "managerTeam5".............................passed
-When user click sign in button..............................................passed
-Given Click to element with element name....................................passed
-Then Compare text using element name........................................passed
-]]></system-out>
+<testsuite errors="0" failures="1" name="io.cucumber.core.plugin.JUnitFormatter" skipped="0" tests="1" time="26.25">
+<testcase classname="NewPassword" name="User Enter 1 lowercase letter of at least 4 characters" time="25.347">
+<failure message="no such element: Unable to locate element: {&quot;method&quot;:&quot;xpath&quot;,&quot;selector&quot;:&quot;//*[@class='invalid-feedback']&quot;}&#10;  (Session info: chrome=86.0.4240.198)&#10;For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/no_such_element.html&#10;Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'&#10;System info: host: 'DESKTOP-HROSTU9', ip: '192.168.0.15', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_241'&#10;Driver info: org.openqa.selenium.chrome.ChromeDriver&#10;Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 86.0.4240.198, chrome: {chromedriverVersion: 86.0.4240.22 (398b0743353ff..., userDataDir: C:\Users\moi\AppData\Local\...}, goog:chromeOptions: {debuggerAddress: localhost:56763}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:virtualAuthenticators: true}&#10;Session ID: eeccc2c19a68871b85a431706b7615a2&#10;*** Element info: {Using=xpath, value=//*[@class='invalid-feedback']}" type="org.openqa.selenium.NoSuchElementException"><![CDATA[Given User is on GMIBank Login pageGiven....................................passed
+And user fills in the New Password textbox with valid "123k"................passed
+And user fills in the New password confirmation textbox with valid "123k"...passed
+And verify red messages under the box.......................................failed
+Then verify Password strength...............................................skipped
+
+StackTrace:
+org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {"method":"xpath","selector":"//*[@class='invalid-feedback']"}
+  (Session info: chrome=86.0.4240.198)
+For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+System info: host: 'DESKTOP-HROSTU9', ip: '192.168.0.15', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_241'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 86.0.4240.198, chrome: {chromedriverVersion: 86.0.4240.22 (398b0743353ff..., userDataDir: C:\Users\moi\AppData\Local\...}, goog:chromeOptions: {debuggerAddress: localhost:56763}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:virtualAuthenticators: true}
+Session ID: eeccc2c19a68871b85a431706b7615a2
+*** Element info: {Using=xpath, value=//*[@class='invalid-feedback']}
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:323)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElementByXPath(RemoteWebDriver.java:428)
+	at org.openqa.selenium.By$ByXPath.findElement(By.java:353)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:315)
+	at org.openqa.selenium.support.pagefactory.DefaultElementLocator.findElement(DefaultElementLocator.java:69)
+	at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:38)
+	at com.sun.proxy.$Proxy17.isDisplayed(Unknown Source)
+	at stepdefinitions.US03CreatPassword.verify_red_messages_under_the_box(US03CreatPassword.java:42)
+	at ✽.verify red messages under the box(file:///C:/Users/moi/IdeaProjects/GMIBankTeam5/src/test/resources/features/US03_CreatPassword.feature:10)
+]]></failure>
 </testcase>
 </testsuite>
